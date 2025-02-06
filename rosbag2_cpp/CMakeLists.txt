@@ -47,11 +47,15 @@ find_package(rcpputils REQUIRED)
 find_package(rcutils REQUIRED)
 find_package(rmw REQUIRED)
 find_package(rmw_implementation REQUIRED)
+find_package(rosbag2_compression REQUIRED)
+find_package(rosbag2_interfaces REQUIRED)
 find_package(rosbag2_storage REQUIRED)
 find_package(rosidl_runtime_c REQUIRED)
 find_package(rosidl_runtime_cpp REQUIRED)
 find_package(rosidl_typesupport_cpp REQUIRED)
 find_package(rosidl_typesupport_introspection_cpp REQUIRED)
+find_package(yaml_cpp_vendor REQUIRED)
+find_package(yaml-cpp REQUIRED)
 
 add_library(${PROJECT_NAME} SHARED
   src/rosbag2_cpp/cache/cache_consumer.cpp
@@ -63,6 +67,7 @@ add_library(${PROJECT_NAME} SHARED
   src/rosbag2_cpp/converter.cpp
   src/rosbag2_cpp/info.cpp
   src/rosbag2_cpp/message_definitions/local_message_definition_source.cpp
+  src/rosbag2_cpp/reader_writer_factory.cpp
   src/rosbag2_cpp/reader.cpp
   src/rosbag2_cpp/readers/sequential_reader.cpp
   src/rosbag2_cpp/rmw_implemented_serialization_format_converter.cpp
@@ -90,6 +95,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
 target_link_libraries(${PROJECT_NAME} PRIVATE
   ament_index_cpp::ament_index_cpp
   rosidl_typesupport_cpp::rosidl_typesupport_cpp
+  yaml-cpp::yaml-cpp
 )
 
 target_include_directories(${PROJECT_NAME}

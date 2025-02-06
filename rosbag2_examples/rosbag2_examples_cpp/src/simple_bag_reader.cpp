@@ -22,7 +22,7 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp/serialization.hpp"
-#include "rosbag2_transport/reader_writer_factory.hpp"
+#include "rosbag2_cpp/reader_writer_factory.hpp"
 
 using namespace std::chrono_literals;
 
@@ -42,7 +42,7 @@ public:
 
     rosbag2_storage::StorageOptions storage_options;
     storage_options.uri = bag_filename;
-    reader_ = rosbag2_transport::ReaderWriterFactory::make_reader(storage_options);
+    reader_ = rosbag2_cpp::ReaderWriterFactory::make_reader(storage_options);
     reader_->open(storage_options);
   }
 

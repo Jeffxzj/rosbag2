@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "rosbag2_transport/reader_writer_factory.hpp"
+#include "rosbag2_cpp/reader_writer_factory.hpp"
 
 #include <memory>
 #include <utility>
@@ -22,10 +22,9 @@
 #include "rosbag2_compression/sequential_compression_writer.hpp"
 #include "rosbag2_storage/metadata_io.hpp"
 
-namespace rosbag2_transport
+namespace rosbag2_cpp
 {
 
-[[deprecated("Use rosbag2_cpp::make_reader instead.")]]
 std::unique_ptr<rosbag2_cpp::Reader> ReaderWriterFactory::make_reader(
   const rosbag2_storage::StorageOptions & storage_options)
 {
@@ -45,7 +44,6 @@ std::unique_ptr<rosbag2_cpp::Reader> ReaderWriterFactory::make_reader(
   return std::make_unique<rosbag2_cpp::Reader>(std::move(reader_impl));
 }
 
-[[deprecated("Use rosbag2_cpp::make_writer instead.")]]
 std::unique_ptr<rosbag2_cpp::Writer> ReaderWriterFactory::make_writer(
   const rosbag2_transport::RecordOptions & record_options)
 {
